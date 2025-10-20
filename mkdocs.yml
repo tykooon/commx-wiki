@@ -1,0 +1,15 @@
+site_name: CommX Wiki (Knowledge Base)
+theme:
+    name: material
+plugins:
+    - search
+
+nav:
+    - Home: index.md
+    - General Info: 00-general/index.md
+    - Services: 10-services/index.md
+    - "User's Guide": 20-userguide/index.md
+    - Development Guidelines: 30-development/index.md
+    - Integration Guidelines: 40-integration/index.md
+    - "Extra: Issues, Links, FAQ": 50-extra/index.md
+    - Migration from Old UAS: 60-migration/index.md

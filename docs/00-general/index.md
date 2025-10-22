@@ -2,8 +2,6 @@
 
 ## Introduction
 
-
-
 ## Actual versions
 
 

@@ -55,16 +55,18 @@ This method register Job as Singleton and add corresponding HostedService for Jo
 ## Example of implementation
 
 #### Section in `appsettings.json`
+
 ```
  "PcKeepAliveJob": {
      "IntervalInSeconds": 10,
      "InitialDelayInSeconds": 600,
      "SkipIfRunning": true,
-     "ChangeStateTimeInMinutes": 15 
+     "ChangeStateTimeInMinutes": 15
  },
 ```
 
-Options Model class (supports DataAnnotations):
+#### Options Model class (supports DataAnnotations):
+
 ```
 public sealed class PcKeepAliveJobOptions : ILoopJobOptions
 {
@@ -83,6 +85,7 @@ public sealed class PcKeepAliveJobOptions : ILoopJobOptions
 ```
 
 #### Properties & Ctor
+
 ```
 public sealed class PcKeepAliveJob : ILoopJob
 {
@@ -95,8 +98,8 @@ public sealed class PcKeepAliveJob : ILoopJob
 
     public PcKeepAliveJob(
         ILogger<PcKeepAliveJob> logger,
-        IKeepAliveRepository keepAliveRepository, 
-        IComputerRepository pcRepository, 
+        IKeepAliveRepository keepAliveRepository,
+        IComputerRepository pcRepository,
         IOptions<PcKeepAliveJobOptions> options)
     {
         _logger = logger;
@@ -107,6 +110,7 @@ public sealed class PcKeepAliveJob : ILoopJob
 ```
 
 #### Main Job Method
+
 ```
 public async Task JobExecuteAsync(CancellationToken token)
 {
@@ -145,7 +149,8 @@ public async Task JobExecuteAsync(CancellationToken token)
 }
 ```
 
-#### Iternal helper
+#### Internal helper
+
 ```
     private async Task DeclarePcAsOffline(PcControlDao pc)
     {
@@ -166,7 +171,6 @@ public async Task JobExecuteAsync(CancellationToken token)
 ```
 services.AddLoopJob<PcKeepAliveJob, PcKeepAliveJobOptions>(configuration, sectionName: nameof(PcKeepAliveJob));
 ```
-
 
 ## List of Jobs implemented already with this pattern in different services
 

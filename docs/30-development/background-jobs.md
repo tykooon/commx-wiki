@@ -11,7 +11,7 @@ Background jobs in services are implemented as infinite loops with ability to st
 ```
 public interface ILoopJob
 {
-    string Name { get; }
+    string JobName { get; }
     Task JobExecuteAsync(CancellationToken ct);
 }
 ```
@@ -94,7 +94,7 @@ public sealed class PcKeepAliveJob : ILoopJob
     private readonly IComputerRepository _pcRepository;
     private readonly PcKeepAliveJobOptions _options;
 
-    public string Name => nameof(PcKeepAliveJob);
+    public string JobName => nameof(PcKeepAliveJob);
 
     public PcKeepAliveJob(
         ILogger<PcKeepAliveJob> logger,
@@ -140,11 +140,11 @@ public async Task JobExecuteAsync(CancellationToken token)
                 await DeclarePcAsOffline(pc);
             }
         }
-        _logger.LogTrace("{job}: Lookup for KeepAlives from Pcs completed", Name);
+        _logger.LogTrace("{job}: Lookup for KeepAlives from Pcs completed", JobName);
     }
     catch (Exception ex)
     {
-        _logger.LogError(ex, "{this} failed during PcKeepAlive Lookup. Errors: {message}", Name, ex.Message);
+        _logger.LogError(ex, "{this} failed during PcKeepAlive Lookup. Errors: {message}", JobName, ex.Message);
     }
 }
 ```
@@ -160,7 +160,7 @@ public async Task JobExecuteAsync(CancellationToken token)
         var updatePC = await _pcRepository.UpsertObject(pc);
         if (updatePC.IsFailed)
         {
-            _logger.LogError("{this} failed update PC with MAC={pcMac} to offline status. error(s) - '{errors}'", Name, pc.ComputerMac, updatePC.ErrorsToString());
+            _logger.LogError("{this} failed update PC with MAC={pcMac} to offline status. error(s) - '{errors}'", JobName, pc.ComputerMac, updatePC.ErrorsToString());
         }
     }
 }
@@ -175,6 +175,7 @@ services.AddLoopJob<PcKeepAliveJob, PcKeepAliveJobOptions>(configuration, sectio
 ## List of Jobs implemented already with this pattern in different services
 
 -   BulkJobCleanup (AdminProvisioning Service)
+-   DetailedReportDisposalJob (Uas)
 -   PcDeleteJob (Login Service)
 -   PcKeepAliveJob (Login Service)
 -   TokenCleanupJob (Login Service)

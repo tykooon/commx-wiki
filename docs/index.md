@@ -1,17 +1,23 @@
-# Welcome to MkDocs
+# Welcome to CommX Wiki
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+A **MkDocs-powered knowledge base** for UC Team projects.
 
-## Commands
+## What's inside?
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Specially structured sections designed for different audiences — newcomers, advanced users (admins), developers, integrators, and QA specialists.
 
-## Project layout
+## Let's build it together
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+You are welcome to enrich this wiki with your **knowledge, experience, and best practices**.  
+Share your vision of our products, pipelines, and more with the team.
+
+Every page in this wiki is a Markdown article.  
+MkDocs compiles these pages into a simple, elegant website with **cross-links** and **convenient navigation** —  
+the **right sidebar** for page contents and the **left sidebar** for section navigation.
+
+Continuous deployment is easy and fast — just **push new content** to update the site.  
+Join in and start contributing today!
+
+---
+
+[Learn more about MkDocs →](https://www.mkdocs.org)

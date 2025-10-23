@@ -1,0 +1,19 @@
+/* Light mode */
+:root {
+  --md-primary-fg-color:        #a70e1b;  /* your brand red */
+  --md-primary-fg-color--light: #f1b5ba;  /* optional lighter tint */
+  --md-primary-fg-color--dark:  #6f0a12;  /* optional darker shade */
+
+  /* if you set accent: custom */
+  /* --md-accent-fg-color:         #a70e1b; */
+}
+
+/* Dark mode (often needs a brighter variant for contrast) */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #ff4652;  /* brighter red for dark bg */
+  --md-primary-fg-color--light: #ffb0b6;
+  --md-primary-fg-color--dark:  #b0121d;
+
+  /* if accent is custom, you can tune it here too */
+  /* --md-accent-fg-color:         #ff4652; */
+}

@@ -1,6 +1,15 @@
 site_name: CommX Wiki (Knowledge Base)
 theme:
-    name: material
+  name: material
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+    - scheme: slate
+      primary: custom
+      accent: custom
+extra_css:
+  - stylesheets/extra.css
 plugins:
     - search
 
@@ -13,3 +22,8 @@ nav:
     - Integration Guidelines: 40-integration/index.md
     - "Extra: Issues, Links, FAQ": 50-extra/index.md
     - Migration from Old UAS: 60-migration/index.md
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - admonition

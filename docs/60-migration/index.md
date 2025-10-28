@@ -1,5 +1,5 @@
-# Migration from Old UAS 
+# Migration from Old UAS
 
 ## Old UAS services
 
-## Old UAS settings
+## [Old UAS settings Revision](old-uas-settings-revision.md)
